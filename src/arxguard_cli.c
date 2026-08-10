@@ -1,5 +1,6 @@
 #include "arxguard_engine.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 static void print_result(const struct arxguard_result *r) {
