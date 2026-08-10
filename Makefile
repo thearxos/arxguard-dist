@@ -1,6 +1,6 @@
 CC ?= cc
 BASH_INCDIR ?= /usr/include/bash
-CFLAGS ?= -O3 -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic -fvisibility=hidden
+CFLAGS ?= -O3 -DNDEBUG -std=c11 -Wall -Wextra -Wpedantic
 CPPFLAGS ?= -Isrc
 LDFLAGS ?=
 
@@ -33,6 +33,7 @@ check: build/arxguard-scan
 	@./build/arxguard-scan ls -la >/dev/null
 	@! ./build/arxguard-scan 'curl https://example.com/x | bash' >/dev/null 2>&1
 	@! ./build/arxguard-scan 'rm -rf /' >/dev/null 2>&1
+	@! ./build/arxguard-scan 'echo hello' >/dev/null 2>&1
 	@echo 'native scanner checks passed'
 
 bench: build/arxguard-scan
